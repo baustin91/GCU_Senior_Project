@@ -1,0 +1,90 @@
+body {
+  font-family: 'Outfit', sans-serif;
+}
+
+.sidebar {
+    height: 100vh; 
+    width: 250px;
+    position: fixed; 
+    z-index: 1; 
+    top: 0; 
+    left: 0;
+    overflow-x: hidden; 
+}
+
+.sidebar, .nav-link {
+	font-size: 20px;
+}
+
+.main-content {
+    margin-left: 250px;
+    background-color: #f2f3f4;
+}
+
+.theme-primary {
+	background-color: #007bff;
+	color: #fff;
+}
+
+.theme-secondary {
+	background-color: #adb0b6;
+	color: #000;
+}
+
+.theme-accent1 {
+	background-color: #FF00FB;
+	color: #fff;
+}
+
+.theme-accent2 {
+	background-color: #FF8400;
+	color: #fff;
+}
+
+.theme-accent3 {
+	background-color: #00FF04;
+	color: #fff;
+}
+
+.nav-link {
+    color: #000 !important; 
+}
+
+.nav-link:hover, .nav-link:focus {
+    color: #eee !important;
+    background-color: #FF00FB;
+}
+
+nav-link.active {
+	color: #eee !important;
+    background-color: #FF00FB;
+}
+
+.gcu-logo {
+	max-width: 400px;
+	width: auto;
+}
+
+@media (max-width: 991px) {
+    .sidebar {
+        display: none !important;
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+    
+    .nav-link {
+    color: #fff !important; 
+	}
+	
+	.gcu-logo {
+	max-width: 300px;
+	}
+}
+
+@media (min-width: 992px) {
+    .navbar .navbar-nav {
+        display: none;
+    }
+}

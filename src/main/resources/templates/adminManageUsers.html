@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/head :: headFragment"></head>
+
+<body>
+	<nav th:replace="fragments/admin/sidebar :: sidebar" class="sidebar"></nav>
+
+	<div class="main-content">
+		<nav th:replace="fragments/admin/navbar :: navbar"></nav>
+
+		<main class="container-fluid" style="height: 100vh;">
+			<div class="my-3">
+				<h1 class="h1">Manage Users</h1>
+				<hr style="padding: 1px;">
+			</div>
+			<div class="row my-3">
+				<div class="col-12 col-lg-6 mx-auto">
+					<label for="searchBar" class="form-label">Search By Username</label>
+  					<input type="text" class="form-control" id="searchBar" placeholder="name@example.com">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12 col-lg-6 mx-auto">
+					<div class="card shadow-sm">
+						<table class="table table-striped">
+							<thead>
+								<tr>
+									<th scope="col" class="col-4">Username</th>
+									<th scope="col" class="col-6">Name</th>
+									<th scope="col" class="col-2"></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>baustin14@my.gcu.edu</td>
+									<td>Bradley Austin</td>
+									<td>
+										<div class="dropdown">
+											<button class="btn btn-secondary dropdown-toggle" type="button"
+												id="editUserbtn" data-bs-toggle="dropdown" aria-expanded="false">
+												Options
+											</button>
+											<ul class="dropdown-menu" aria-labelledby="editUserbtn">
+												<li><a class="dropdown-item" href="#">Edit</a></li>
+												<li><a class="dropdown-item" href="#">Delete</a></li>
+											</ul>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>testuser@my.gcu.edu</td>
+									<td>Test User</td>
+									<td>
+										<div class="dropdown">
+											<button class="btn btn-secondary dropdown-toggle" type="button"
+												id="editUserbtn" data-bs-toggle="dropdown" aria-expanded="false">
+												Options
+											</button>
+											<ul class="dropdown-menu" aria-labelledby="editUserbtn">
+												<li><a class="dropdown-item" href="#">Edit</a></li>
+												<li><a class="dropdown-item" href="#">Delete</a></li>
+											</ul>
+										</div>
+									</td>
+								</tr>
+								<!-- Additional rows can be added here -->
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</main>
+	</div>
+</body>
+
+</html>

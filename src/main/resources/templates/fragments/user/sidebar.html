@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse shadow" th:fragment="sidebar">
+      <div class="position-sticky pt-3">
+        <ul class="nav flex-column">
+		<h3 class="mx-2" style="color: #007bff;">Entry Point</h3>
+		<hr style="padding:1px;">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/user/dashboard">
+            <i class="bi bi-layout-text-window-reverse"></i>
+              Dashboard
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/user/forms">
+            <i class="bi bi-info-circle"></i>
+              Forms
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/user/videos">
+            <i class="bi bi-play-btn"></i>
+              Videos
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/user/test">
+            <i class="bi bi-pencil-square"></i>
+              Test
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/">
+            <i class="bi bi-box-arrow-right"></i>
+              Logout
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark theme-primary shadow sticky-top py-3" th:fragment="navbar">
+      <div class="container-fluid">
+        <th:block><a class="navbar-brand" th:href="@{${navbarLink}}" href="#" th:text="${navbarText}">Default Text</a></th:block>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/user/dashboard">Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/user/forms">Forms</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/admin/videos">Videos</a>
+            </li>
+			<li class="nav-item">
+              <a class="nav-link" href="/user/test">Test</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/head :: headFragment"></head>
+
+<body>
+	<nav th:replace="fragments/admin/sidebar :: sidebar" class="sidebar"></nav>
+
+	<div class="main-content">
+		<nav th:replace="fragments/admin/navbar :: navbar"></nav>
+
+		<main class="container-fluid" style="height: 100vh;">
+			<div class="my-3">
+				<h1 class="h1">User Reports</h1>
+				<hr style="padding: 1px;">
+			</div>
+			<div class="row">
+				<div class="col-12 col-lg-6 mx-auto">
+					<div class="card shadow-sm">
+						<table class="table table-striped">
+							<thead>
+								<tr>
+									<th scope="col" class="col-2 col-lg-4">Username</th>
+									<th scope="col" class="col-2">Name</th>
+									<th scope="col" class="col-2">Task One</th>
+									<th scope="col" class="col-2">Task Two</th>
+									<th scope="col" class="col-2">Task Three</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td class="text-break">baustin14@my.gcu.edu</td>
+									<td class="text-break">Bradley Austin</td>
+									<td><i class="bi bi-check-lg" style="color:blue"></i></td>
+									<td><i class="bi bi-check-lg" style="color:blue"></i></td>
+									<td><i class="bi bi-x-lg" style="color:red"></i></td>
+								</tr>
+								<tr>
+									<td class="text-break">testuser@my.gcu.edu</td>
+									<td class="text-break">Test User</td>
+									<td><i class="bi bi-x-lg" style="color:red"></i></td>
+									<td><i class="bbi bi-x-lg" style="color:red"></i></td>
+									<td><i class="bi bi-x-lg" style="color:red"></i></td>
+								</tr>
+								<!-- Additional rows can be added here -->
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</main>
+	</div>
+</body>
+
+</html>

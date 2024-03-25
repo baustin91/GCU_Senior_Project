@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/head :: headFragment"></head>
+
+<body>
+	<nav th:replace="fragments/admin/sidebar :: sidebar" class="sidebar"></nav>
+
+	<div class="main-content">
+		<nav th:replace="fragments/admin/navbar :: navbar"></nav>
+
+		<main class="container-fluid" style="height: 100vh;">
+			<div class="my-3">
+				<h1 class="h1">Dashboard</h1>
+				<hr style="padding: 1px;">
+			</div>
+			<section>
+				<div class="card shadow-sm">
+					<div class="container-fluid px-0 mx-0" style="max-height: 400px;">
+						<img src="/img/dashboard-img.png" class="img-fluid rounded-3 px-0 mx-0" alt="Dashboard page image">
+					</div>
+				</div>
+			</section>
+			<section>
+				<div class="row">
+					<div class="col-12 col-lg-6 my-3">
+						<div class="card shadow-sm">
+							<h4 class="fs-2 mx-auto">Manage Users</h4>
+							<ul class="fs-5">
+								<li>View Users</li>
+								<li>Edit Users</li>
+								<li>Delete Users</li>
+							</ul>
+							<div class="col-11 mx-auto my-3 d-grid">
+								<button type="button" class="btn btn-primary" onclick="window.location.href='/admin/manageusers';">Enter</button>
+							</div>
+						</div>
+					</div>
+					<div class="col-12 col-lg-6 my-3">
+						<div class="card shadow-sm" style="height: 100%;">
+							<h4 class="fs-2 mx-auto">Reports</h4>
+							<ul class="fs-5">
+								<li>View User Progress</li>
+								<li>View User Feedback</li>
+								<br>
+							</ul>
+							<div class="col-11 mx-auto my-3 d-grid">
+								<button type="button" class="btn btn-primary" onclick="window.location.href='/admin/reports';">Enter</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+	</div>
+</body>
+
+</html>

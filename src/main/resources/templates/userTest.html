@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/head :: headFragment"></head>
+
+<body>
+	<nav th:replace="fragments/user/sidebar :: sidebar" class="sidebar"></nav>
+
+	<div class="main-content">
+		<nav th:replace="fragments/user/navbar :: navbar"></nav>
+
+		<main class="container-fluid" style="height: 100vh;">
+			<div class="my-3">
+				<h1 class="h1">Test</h1>
+				<hr style="padding: 1px;">
+			</div>
+
+		</main>
+	</div>
+</body>
+
+</html>
