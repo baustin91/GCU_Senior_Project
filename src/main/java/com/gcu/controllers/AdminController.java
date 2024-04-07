@@ -16,15 +16,6 @@ public class AdminController {
         model.addAttribute("navbarText", "Admin");
         return "adminDashboard";
     }
-    
-    
-    @GetMapping("/reports")
-    public String reports(Model model) {
-        model.addAttribute("title", "Reports");
-        model.addAttribute("description", "Admin Reports Page");
-    	model.addAttribute("navbarText", "Admin");
-    	return "adminReports";
-    }
-	
+
 }
 

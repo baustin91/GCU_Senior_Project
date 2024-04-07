@@ -14,7 +14,26 @@
 				<h1 class="h1">Videos</h1>
 				<hr style="padding: 1px;">
 			</div>
-
+			<div class="row">
+				<div class="col-12 col-lg-6 mx-auto">
+					<div class="card shadow-sm" style="background-color: black;">
+						<div class="card-body d-flex justify-content-center">
+						 	<div class="image-glow-wrapper">
+								<img src="/img/Video-thumbnail.png" class="img-fluid rounded-3 px-0 mx-0" alt="Dashboard page image">
+							</div>
+						</div>
+					</div>
+					<div class="form-check mt-3">
+					  <input class="form-check-input" type="checkbox" value="" id="verifiedVideoWatched">
+					  <label class="form-check-label" for="verifiedVideoWatched">
+					    Verified Video Watched
+					  </label>
+					</div>
+                    <div class="col-12 mx-auto my-3 d-grid">
+						<a th:href="@{/tasks/complete/{id}(id=2)}" class="btn btn-primary btn-block">Submit</a>
+					</div>
+				</div>
+			</div>
 		</main>
 	</div>
 </body>

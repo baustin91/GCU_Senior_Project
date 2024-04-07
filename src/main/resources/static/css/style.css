@@ -65,6 +65,12 @@ nav-link.active {
 	width: auto;
 }
 
+.image-glow-wrapper img {
+    box-shadow: 0 0 2px 2px #444, /* outer white */
+                0 0 15px 15px #555; /* outer blue */
+}
+
+
 @media (max-width: 991px) {
     .sidebar {
         display: none !important;

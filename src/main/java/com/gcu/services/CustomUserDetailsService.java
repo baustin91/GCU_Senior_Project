@@ -24,11 +24,9 @@ public class CustomUserDetailsService implements UserDetailsService {
     public User loadUserByUsername(String username) throws UsernameNotFoundException {
         UserModel user = userRepository.findByUsername(username);
         if (user == null) {
-        	//System.out.println("USER NOT FOUND");
             throw new UsernameNotFoundException("User not found");
         }
 
-        //System.out.println("User found: " + user.getUsername() + " with role: " + user.getRole());
         return new User(user.getUsername(), user.getPassword(), user.isEnabled(),
                 true, true, true,
                 Collections.singletonList(new SimpleGrantedAuthority(user.getRole())));

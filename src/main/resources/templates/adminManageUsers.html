@@ -17,152 +17,197 @@
 			<div class="row my-3">
 				<div class="col-12 col-xl-6 mx-auto">
 					<label for="searchBar" class="form-label">Search By Username</label>
-  					<input type="text" class="form-control" id="searchBar" placeholder="name@example.com">
+					<input type="text" class="form-control" id="searchBar" placeholder="name@example.com">
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-12 col-xl-6 mx-auto">
 					<div class="card shadow-sm">
 						<table class="table table-striped">
-						    <thead>
-						        <tr>
+							<thead>
+								<tr>
 									<th scope="col" class="col-4">Username</th>
 									<th scope="col" class="col-6">Name</th>
 									<th scope="col" class="col-2"></th>
-						        </tr>
-						    </thead>
-						    <tbody>
-						        <tr th:each="user : ${users}">
-						            <td th:text="${user.username}">Email Placeholder</td>
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="user : ${users}">
+									<td th:text="${user.username}">Email Placeholder</td>
 									<td th:text="${user.firstName} + ' ' + ${user.lastName}">Name Placeholder</td>
-						            <td>
-						                <div class="dropdown">
-						                    <button class="btn btn-secondary dropdown-toggle" type="button"
-						                            data-bs-toggle="dropdown" aria-expanded="false">
-						                        Options
-						                    </button>
-						                    <ul class="dropdown-menu">
-						                        <li><a class="dropdown-item" th:href="@{/admin/manageusers/edit(user=${user.id})}">Edit</a></li>
-						                        <li><a class="dropdown-item" th:href="@{/admin/manageusers/delete(user=${user.id})}">Delete</a></li>
+									<td>
+										<div class="dropdown">
+											<button class="btn btn-secondary dropdown-toggle" type="button"
+												data-bs-toggle="dropdown" aria-expanded="false">
+												Options
+											</button>
+											<ul class="dropdown-menu">
+												<li>
+													<button class="dropdown-item edit-user" th:data-user-id="${user.id}"
+														th:data-user-username="${user.username}"
+														th:data-user-firstname="${user.firstName}"
+														th:data-user-lastname="${user.lastName}">Edit
+													</button>
+												</li>
 
-<li><a href="#" class="dropdown-item edit-user" 
-   data-user-id="${user.id}" 
-   data-user-username="${user.username}"
-   data-user-firstname="${user.firstName}"
-   data-user-lastname="${user.lastName}">Edit</a>
-</li>
+												<li>
+													<button class="dropdown-item delete-user"
+														th:data-user-id="${user.id}"
+														th:data-user-username="${user.username}"
+														th:data-user-firstname="${user.firstName}"
+														th:data-user-lastname="${user.lastName}">Delete
+													</button>
+												</li>
 
-<li><a href="#" class="dropdown-item delete-user" data-user-id="${user.id}">Delete</a>
-</li>
-
-						                    </ul>
-						                </div>
-						            </td>
-						        </tr>
-						    </tbody>
+											</ul>
+										</div>
+									</td>
+								</tr>
+							</tbody>
 						</table>
 					</div>
 				</div>
 			</div>
 		</main>
-		
-		<div class="modal fade" id="editUserModal" tabindex="-1" aria-labelledby="editUserModalLabel" aria-hidden="true">
-		  <div class="modal-dialog">
-		    <div class="modal-content">
-		      <div class="modal-header">
-		        <h5 class="modal-title" id="editUserModalLabel">Edit User</h5>
-        		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-		      </div>
-		      <form th:action="@{/admin/manageusers/edit}" method="post">
-		        <div class="modal-body">
-		            <!-- Hidden field for user ID -->
-		            <input type="hidden" name="id" id="editUserId">
-		            <div class="form-group">
-		                <label for="editUsername">Username</label>
-		                <input type="text" class="form-control" id="editUsername" name="username" required>
-		            </div>
-		            <div class="form-group">
-		                <label for="editFirstName">First Name</label>
-		                <input type="text" class="form-control" id="editFirstName" name="firstName" required>
-		            </div>
-		            <div class="form-group">
-		                <label for="editLastName">Last Name</label>
-		                <input type="text" class="form-control" id="editLastName" name="lastName" required>
-		            </div>
-		        </div>
-		        <div class="modal-footer">
-			      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-		          <button type="submit" class="btn btn-primary">Save changes</button>
-		        </div>
-		      </form>
-		    </div>
-		  </div>
+
+		<div class="modal fade" id="editUserModal" tabindex="-1" aria-labelledby="editUserModalLabel"
+			aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="editUserModalLabel">Edit User</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<form th:action="@{/admin/manageusers/edit}" method="post" id="editUserForm">
+						<input type="hidden" name="_csrf" th:value="${_csrf.token}" />
+						<div class="modal-body">
+							<!-- Hidden field for user ID -->
+							<input type="hidden" name="id" id="editUserId">
+							<div class="form-group">
+								<label for="editUsername">Username</label>
+								<input type="text" class="form-control" id="editUsername" name="username" required>
+							</div>
+							<div class="form-group">
+								<label for="editFirstName">First Name</label>
+								<input type="text" class="form-control" id="editFirstName" name="firstName" required>
+							</div>
+							<div class="form-group">
+								<label for="editLastName">Last Name</label>
+								<input type="text" class="form-control" id="editLastName" name="lastName" required>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+							<button type="submit" class="btn btn-primary">Save changes</button>
+						</div>
+					</form>
+				</div>
+			</div>
 		</div>
 
-		
-		<div class="modal fade" id="deleteUserModal" tabindex="-1" aria-labelledby="deleteUserModalLabel" aria-hidden="true">
-		  <div class="modal-dialog">
-		    <div class="modal-content">
-		      <div class="modal-header">
-		        <h5 class="modal-title" id="deleteUserModalLabel">Confirm Delete</h5>
-        		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-		      </div>
-		      <div class="modal-body">
-		        Are you sure you want to delete this user?
-		      </div>
-		      <div class="modal-footer">
-			    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-		        <a href="#" class="btn btn-danger" id="deleteUserConfirm">Delete</a>
-		      </div>
-		    </div>
-		  </div>
+
+		<div class="modal fade" id="deleteUserModal" tabindex="-1" aria-labelledby="deleteUserModalLabel"
+			aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="deleteUserModalLabel">Confirm Delete</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						Are you sure you want to delete this user?
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+						<a href="#" class="btn btn-danger" id="deleteUserConfirm">Delete</a>
+					</div>
+				</div>
+			</div>
 		</div>
-		
-		
+
+
 	</div>
 </body>
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/popper.min.js"></script>
 <script>
-document.addEventListener('DOMContentLoaded', (event) => {
-    const editButtons = document.querySelectorAll('.edit-user');
-    editButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const userId = this.getAttribute('data-user-id');
-            const username = this.getAttribute('data-user-username');
-            const firstName = this.getAttribute('data-user-firstname');
-            const lastName = this.getAttribute('data-user-lastname');
+	$(document).ready(function () {
+		// Handler for opening the edit modal and populating it with user data
+		$('.edit-user').click(function () {
+			const userId = $(this).data('user-id');
 
-            // Populate the modal fields
-            document.getElementById('editUserId').value = userId;
-            document.getElementById('editUsername').value = username;
-            document.getElementById('editFirstName').value = firstName;
-            document.getElementById('editLastName').value = lastName;
+			$.ajax({
+				url: `/admin/manageusers/user/${userId}`,
+				type: 'GET',
+				success: function (user) {
+					$('#editUserId').val(user.id);
+					$('#editUsername').val(user.username);
+					$('#editFirstName').val(user.firstName);
+					$('#editLastName').val(user.lastName);
+					$('#editUserModal').modal('show');
+				},
+				error: function (error) {
+					console.error('Error fetching user details:', error.responseText);
+				}
+			});
+		});
 
-            // Show the modal
-            $('#editUserModal').modal('show');
-        });
-    });
-});
+		// Handler for submitting the edit form
+		$('#editUserForm').submit(function (event) {
+			event.preventDefault();
+			const formData = $(this).serialize();
 
-document.addEventListener('DOMContentLoaded', (event) => {
-    const deleteButtons = document.querySelectorAll('.delete-user');
-    deleteButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const userId = this.getAttribute('data-user-id');
+			$.ajax({
+				url: `/admin/manageusers/edit`,
+				type: 'POST',
+				data: formData,
+				beforeSend: function (xhr) {
+					const token = $('input[name="_csrf"]').val();
+					if (token) {
+						xhr.setRequestHeader('X-CSRF-Token', token);
+					}
+				},
+				success: function () {
+					window.location.reload();
+				},
+				error: function (xhr) {
+					console.error('Error updating user:', xhr.responseText);
+				}
+			});
+		});
 
-            // Set the confirm button's href
-            document.getElementById('deleteUserConfirm').href = `/admin/manageusers/delete/${userId}`;
+		// Handler for delete confirmation
+		$('.delete-user').click(function (e) { 
+			e.preventDefault();
+			const userId = $(this).data('user-id');
 
-            // Show the modal
-            $('#deleteUserModal').modal('show');
-        });
-    });
-});
+			console.log(userId);
+
+			// Show delete confirmation modal
+			$('#deleteUserModal').modal('show');
+
+			// Dynamic binding for delete confirmation to avoid multiple bindings
+			$('#deleteUserConfirm').off('click').on('click', function () {
+				$.ajax({
+					url: `/admin/manageusers/delete/${userId}`,
+					type: 'POST',
+					beforeSend: function (xhr) {
+						const token = $('input[name="_csrf"]').val();
+						if (token) {
+							xhr.setRequestHeader('X-CSRF-Token', token);
+						}
+					},
+					success: function () {
+						window.location.href = "/admin/manageusers";
+					},
+					error: function (error) {
+						console.error('Error deleting user:', error.responseText);
+					}
+				});
+			});
+		});
+	});
 </script>
 
-
 </html>
-
-

@@ -22,27 +22,19 @@
 								<tr>
 									<th scope="col" class="col-2 col-lg-4">Username</th>
 									<th scope="col" class="col-2">Name</th>
-									<th scope="col" class="col-2">Task One</th>
-									<th scope="col" class="col-2">Task Two</th>
-									<th scope="col" class="col-2">Task Three</th>
+									<th scope="col" class="col-2">Forms</th>
+									<th scope="col" class="col-2">Video</th>
+									<th scope="col" class="col-2">Test</th>
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td class="text-break">baustin14@my.gcu.edu</td>
-									<td class="text-break">Bradley Austin</td>
-									<td><i class="bi bi-check-lg" style="color:blue"></i></td>
-									<td><i class="bi bi-check-lg" style="color:blue"></i></td>
-									<td><i class="bi bi-x-lg" style="color:red"></i></td>
-								</tr>
-								<tr>
-									<td class="text-break">testuser@my.gcu.edu</td>
-									<td class="text-break">Test User</td>
-									<td><i class="bi bi-x-lg" style="color:red"></i></td>
-									<td><i class="bbi bi-x-lg" style="color:red"></i></td>
-									<td><i class="bi bi-x-lg" style="color:red"></i></td>
-								</tr>
-								<!-- Additional rows can be added here -->
+							    <tr th:each="report : ${reports}">
+							        <td th:text="${report.username}"></td>
+							        <td th:text="${report.name}"></td>
+							        <td><i th:class="${report.taskOneCompleted} ? 'bi bi-check-lg' : 'bi bi-x-lg'" th:style="${report.taskOneCompleted} ? 'color:blue' : 'color:red'"></i></td>
+							        <td><i th:class="${report.taskTwoCompleted} ? 'bi bi-check-lg' : 'bi bi-x-lg'" th:style="${report.taskTwoCompleted} ? 'color:blue' : 'color:red'"></i></td>
+							        <td><i th:class="${report.taskThreeCompleted} ? 'bi bi-check-lg' : 'bi bi-x-lg'" th:style="${report.taskThreeCompleted} ? 'color:blue' : 'color:red'"></i></td>
+							    </tr>
 							</tbody>
 						</table>
 					</div>

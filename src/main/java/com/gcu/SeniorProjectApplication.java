@@ -12,5 +12,4 @@ public class SeniorProjectApplication {
 		SpringApplication.run(SeniorProjectApplication.class, args);
 		System.out.println("Application starting...");
 	}
-
 }
