@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/head :: headFragment"></head>
+
+<body>
+	<div class="container-fluid" style="background-color: #f0f2f5">
+		<div class="row pt-2 justify-content-center">
+			<div class="col-12 col-md-6">
+				<div class="card container-fluid shadow-sm">
+					<h1 class="fs-1 mt-2 mb-0">Bradley Austin</h1>
+					<hr style="padding: 1px;">
+					<h3 class="fs-3">Senior Project</h3>
+					<h3 class="fs-3">Grand Canyon University</h3>
+					<a href="https://www.gcu.edu/degree-programs/bs-software-development" class="fs-3" target="_blank">Bachelor of Science in Software Development</a>
+					<div class="col-12 mx-auto my-2 d-grid">
+						<a href="/" class="btn btn-primary" target="_blank">View the Project</a>
+					</div>
+					<div class="col-12 mx-auto mb-2 d-grid">
+						<a href="https://github.com/baustin91/GCU_Senior_Project" class="btn btn-secondary" target="_blank">Github</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row pt-2 justify-content-center">
+			<div class="col-12 col-md-6">
+				<div class="card container-fluid shadow-sm">
+					<h2 class="fs-2 mt-2 mb-0">Abstract</h2>
+					<hr style="padding: 1px;">
+					<p>
+						Entry Point is an HR onboarding tool that will be designed and built to accommodate small businesses with initial set up and training of new employees. The projects scope will be to design and develop a simple web based application to manage all the HR features that will be needed to help automate the onboarding process. While the projects success will be determined on the timely completion of a working build to present. This application will be designed and coded by the team outlined in this document for theoretical customers. There will be no associated costs for the development of this project as it will use open source tools to build and launch. 
+					</p>
+					<p>
+						The project will be developed using a Java Spring stack including Spring Boot, Spring Security, Spring JPA and Thymeleaf as well as a frontend stack of HTML, CSS, JavaScript and Bootstrap. The combination of these tools will be used to develop a multipage web application that can be launched in the cloud for easy customer access. The backend design will follow the Model, View, Controller design pattern as well as being N-layered design. The frontend user interface will be created and designed to be both reactive to several screen sizes and ratios while also including industry standard accessibility features. 
+					</p>
+					<p>
+						The completion and launch of this product will satisfy the market needs of standardizing and organizing human resource onboarding for small businesses that currently do not have a solution for this need. The technology stack and implementation will aim to make the program easily accessible by being available online. Customers will be able to access their programs at all times from anywhere so long as they have an internet connection.
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="row pt-2 justify-content-center">
+			<div class="col-12 col-md-6">
+				<div class="card container-fluid shadow-sm">
+					<h2 class="fs-2 mt-2 mb-0">The Problem and Background</h2>
+					<hr style="padding: 1px;">
+					<p>
+						Running a small business takes a lot of time and effort, and most owners and managers have several tasks to deal with all at the same time. Onboarding new employees is an important task but can unfortunately get rushed through to get those new employees working as quickly as possible, especially in high turnover fields.
+					</p>
+					<p>
+						Entry Point is meant to be a tool to help assist small businesses with their onboarding needs as well as help to automate this process. This will give more time to the owners and managers to focus on other tasks while also ensuring that the new employees have a smooth onboarding experience.
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="row pt-2 justify-content-center">
+			<div class="col-12 col-md-6">
+				<div class="card container-fluid shadow-sm">
+					<h2 class="fs-2 mt-2 mb-0">Project Objective</h2>
+					<hr style="padding: 1px;">
+					<p>
+						Develop and launch a web based application that will help management of HR onboarding for small businesses. It will have features including logging in for both admins and users, storage of user data, tasks for users to complete, and the ability for admins to review user progress.
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="row pt-2 justify-content-center">
+			<div class="col-12 col-md-6">
+				<div class="card container-fluid shadow-sm">
+					<h2 class="fs-2 mt-2 mb-0">Project High-Level Solution</h2>
+					<hr style="padding: 1px;">
+					<h4 class="fs-4">Introduction</h4>
+					<p>
+						Entry Point aims to be a human resource solution for onboarding new employees for small businesses that might not have the time, structure, or organization in place to effectively complete this task. The objective to solve this problem will be to build a web application to make access to the program fast and easy for both the businesses as well as their newly hired employees. For the administrative side which will be the main workspace for the businesses will include the ability to manage users by adding new accounts, deleting accounts, editing accounts, as well as viewing the progress of tasks for those users. On the employee’s end, they will be able to sign in and view a list of tasks to complete, upload documentation, complete forms, and submit feedback about their experience. The team will assume that all users from both the admin and user sides will have basic knowledge of how to interact with a web application and so our program will not have any interactive tutorials.	
+					</p>
+					<h4 class="fs-4">Solution</h4>
+					<p>
+						The solution that the team will be implementing will be to design and build a custom made tool that will be easy to interact with a modern design. The project will be coded using Java Spring Boot to handle the web server processes, while the frontend will be build using html, CSS, JavaScript, and bootstrap for components. Thymeleaf will be used to tie the front and backends together and render the view pages for the browser. Spring Security will be used to handle the authentication of users and route admins to their specific pages while sending users to the pages they will have access to. A MySQL database will be designed and set up to store important information such as user data as well as data about user activity when they complete tasks. Since the application will be designed as a web application it will be launched and hosted on Heroku’s platform to make it accessible online. Building this tool as a customized web application will ensure that all users will have easy access to the program and it will be available at all times from anywhere in the world. Meaning that the tool will be flexible and easy to implement for both the customers (businesses) and the users (employees). 
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="row pt-2 justify-content-center">
+			<div class="col-12 col-md-6">
+				<div class="card container-fluid shadow-sm">
+					<h2 class="fs-2 mt-2 mb-0">Diagrams</h2>
+					<hr style="padding: 1px;">
+					<h4 class="fs-4 mt-4">Site Map</h4>
+					<div class="container-fluid px-0 mx-0 d-flex justify-content-center">
+						<img src="/img/Senior-Project-Site-Map1.png" class="img-fluid rounded-3 px-0 mx-0" alt="Senior Project Site map">
+					</div>
+					<h4 class="fs-4 mt-4">UML</h4>
+					<div class="container-fluid px-0 mx-0 d-flex justify-content-center">
+						<img src="/img/Senior-Project-uml.png" class="img-fluid rounded-3 px-0 mx-0" alt="Senior Project UML">
+					</div>
+					<h4 class="fs-4 mt-4">ER Diagram</h4>
+					<div class="container-fluid px-0 mx-0 d-flex justify-content-center">
+						<img src="/img/Senior-Project-ER-Diagram.png" class="img-fluid rounded-3 px-0 mx-0" alt="Senior Project ER Diagram">
+					</div>
+					<h4 class="fs-4 mt-4">Logical Solutions Design</h4>
+					<div class="container-fluid px-0 mx-0 d-flex justify-content-center">
+						<img src="/img/Senior-Project-Logical-Solutions-Design1.png" class="img-fluid rounded-3 px-0 mx-0" alt="Senior Project Logical Solutions Design">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row pt-2 pb-2 justify-content-center">
+			<div class="col-12 col-md-6">
+				<div class="card container-fluid shadow-sm">
+					<h2 class="fs-2 mt-2 mb-0">Code snippets</h2>
+					<hr style="padding: 1px;">
+					<h4 class="fs-4 mt-4">Adding Users</h4>
+					<div class="container-fluid px-0 mx-0 d-flex justify-content-center">
+						<img src="/img/Senior-Project-Code-Snip1.png" class="img-fluid rounded-3 px-0 mx-0" alt="Senior Project Site map">
+					</div>
+					<p>
+						Adding users to the application was done in two steps. First we passed in the input data from the registration form, then sent that user data to the database. Next I called the helper method that added tasks for the users and added those tasks for this user to the Users_Task table. With this relation the user is now fully signed up and tasks are assigned and ready to be compelted.
+					</p>
+					<h4 class="fs-4 mt-4">Report for Getting Completed Tasks</h4>
+					<div class="container-fluid px-0 mx-0 d-flex justify-content-center">
+						<img src="/img/Senior-Project-Code-Snip2.png" class="img-fluid rounded-3 px-0 mx-0" alt="Senior Project Site map">
+					</div>
+					<p>
+						This snippet shows how the admins can pull reports for users tasks. Since we want to display a list of all the users I first pulled all the users from the Users database. Then I made sure to get the correct data for the report such as the username as well as first and last names. Next I iterated through the list to check if tasks were compelted or not then passed that back to the final list to be sent back to the view and displayed.
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
