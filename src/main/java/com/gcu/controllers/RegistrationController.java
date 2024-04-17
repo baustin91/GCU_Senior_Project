@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.gcu.models.UserModel;
 import com.gcu.services.UserService;
@@ -32,8 +33,12 @@ public class RegistrationController {
     
     
     @PostMapping
-    public String registerUser(@ModelAttribute UserModel user) {
-        userService.registerNewUser(user.getUsername(), user.getPassword(), user.getFirstName(), user.getLastName(), "ROLE_USER"); 
+    public String registerUser(@ModelAttribute UserModel user, RedirectAttributes redirectAttributes) {
+        boolean success = userService.registerNewUser(user.getUsername(), user.getPassword(), user.getFirstName(), user.getLastName(), "ROLE_USER");
+        if (!success) {
+            redirectAttributes.addFlashAttribute("error", "Username already exists.");
+            return "redirect:/register";
+        }
         return "redirect:/login";
     }
 }

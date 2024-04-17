@@ -50,6 +50,7 @@ public class SecurityConfig {
 					.usernameParameter("username")
 		            .passwordParameter("password")
 		            .failureForwardUrl("/login")
+		            .failureUrl("/login?error=true")
 		            .defaultSuccessUrl("/login/defaultRedirect", true)
 			)
 			

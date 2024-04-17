@@ -70,6 +70,15 @@ nav-link.active {
                 0 0 15px 15px #555; /* outer blue */
 }
 
+.font-404{
+	font-size: 80px;
+}
+
+.four-o-four-img-container{
+	height: 500px;
+	width: 500px;
+}
+
 
 @media (max-width: 991px) {
     .sidebar {
@@ -86,6 +95,11 @@ nav-link.active {
 	
 	.gcu-logo {
 	max-width: 300px;
+	}
+	
+	.four-o-four-img-container{
+	height: 300px;
+	width: 300px;
 	}
 }
 

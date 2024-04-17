@@ -4,7 +4,7 @@
 <head th:replace="fragments/head :: headFragment"></head>
 
 <body>
-	<div class="container-fluid" style="height: 100vh; background-color: #f0f2f5">
+	<div class="container-fluid" style="min-height: 100vh; background-color: #f0f2f5">
 		<div class="row pt-5 justify-content-center">
 			<div class="col-12 col-lg-4">
 			    <h2 class="mt-5">Register New User</h2>
@@ -33,6 +33,13 @@
 					        <div class="col-12 mx-auto my-3 d-grid">
 					        	<button type="submit" class="btn btn-primary">Register</button>
 					        </div>
+					        <div class="col-12 mx-auto my-3 d-grid">
+					        	<button type="button" class="btn btn-secondary" onclick="window.location.href='/login';">Go Back</button>
+					        </div>
+						    <!-- Error Message -->
+						    <div th:if="${error}" class="alert alert-danger" role="alert">
+						        <p th:text="${error}">Default error message here.</p>
+						    </div>
 					    </form>
 				    </div>
 			    </div>

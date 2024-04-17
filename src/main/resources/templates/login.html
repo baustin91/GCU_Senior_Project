@@ -16,18 +16,23 @@
 			<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
 			  <!-- Username input -->
 			  <div class="form-outline mb-4">
-			    <input type="text" name="username" class="form-control form-control-lg" />
+			    <input type="text" name="username" class="form-control form-control-lg" required/>
 			    <label class="form-label">Username</label>
 			  </div>
 			
 			  <!-- Password input -->
 			  <div class="form-outline mb-4">
-			    <input type="password" name="password" class="form-control form-control-lg" />
+			    <input type="password" name="password" class="form-control form-control-lg" required/>
 			    <label class="form-label">Password</label>
 			  </div>
 			
 			  <!-- Submit button -->
 			  <button type="submit" class="btn btn-primary btn-lg btn-block" style="width: 100%;">Login</button>
+			  <!-- Error Message -->
+				<!-- Error Message -->
+				<div th:if="${loginError}" class="alert alert-danger mt-3" role="alert">
+				    Invalid username or password. Please try again.
+				</div>
 			</form>
         <div class="col-12 mt-3">
         	<a href="/register">Register new user</a> 

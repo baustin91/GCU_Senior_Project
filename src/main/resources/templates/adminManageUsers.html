@@ -9,7 +9,7 @@
 	<div class="main-content">
 		<nav th:replace="fragments/admin/navbar :: navbar"></nav>
 
-		<main class="container-fluid" style="height: 100vh;">
+		<main class="container-fluid" style="min-height: 100vh;">
 			<div class="my-3">
 				<h1 class="h1">Manage Users</h1>
 				<hr style="padding: 1px;">
@@ -17,7 +17,7 @@
 			<div class="row my-3">
 				<div class="col-12 col-xl-6 mx-auto">
 					<label for="searchBar" class="form-label">Search By Username</label>
-					<input type="text" class="form-control" id="searchBar" placeholder="name@example.com">
+					<input type="text" class="form-control" id="searchBar" placeholder="Type Search Term...">
 				</div>
 			</div>
 			<div class="row">
@@ -131,83 +131,6 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/popper.min.js"></script>
-<script>
-	$(document).ready(function () {
-		// Handler for opening the edit modal and populating it with user data
-		$('.edit-user').click(function () {
-			const userId = $(this).data('user-id');
-
-			$.ajax({
-				url: `/admin/manageusers/user/${userId}`,
-				type: 'GET',
-				success: function (user) {
-					$('#editUserId').val(user.id);
-					$('#editUsername').val(user.username);
-					$('#editFirstName').val(user.firstName);
-					$('#editLastName').val(user.lastName);
-					$('#editUserModal').modal('show');
-				},
-				error: function (error) {
-					console.error('Error fetching user details:', error.responseText);
-				}
-			});
-		});
-
-		// Handler for submitting the edit form
-		$('#editUserForm').submit(function (event) {
-			event.preventDefault();
-			const formData = $(this).serialize();
-
-			$.ajax({
-				url: `/admin/manageusers/edit`,
-				type: 'POST',
-				data: formData,
-				beforeSend: function (xhr) {
-					const token = $('input[name="_csrf"]').val();
-					if (token) {
-						xhr.setRequestHeader('X-CSRF-Token', token);
-					}
-				},
-				success: function () {
-					window.location.reload();
-				},
-				error: function (xhr) {
-					console.error('Error updating user:', xhr.responseText);
-				}
-			});
-		});
-
-		// Handler for delete confirmation
-		$('.delete-user').click(function (e) { 
-			e.preventDefault();
-			const userId = $(this).data('user-id');
-
-			console.log(userId);
-
-			// Show delete confirmation modal
-			$('#deleteUserModal').modal('show');
-
-			// Dynamic binding for delete confirmation to avoid multiple bindings
-			$('#deleteUserConfirm').off('click').on('click', function () {
-				$.ajax({
-					url: `/admin/manageusers/delete/${userId}`,
-					type: 'POST',
-					beforeSend: function (xhr) {
-						const token = $('input[name="_csrf"]').val();
-						if (token) {
-							xhr.setRequestHeader('X-CSRF-Token', token);
-						}
-					},
-					success: function () {
-						window.location.href = "/admin/manageusers";
-					},
-					error: function (error) {
-						console.error('Error deleting user:', error.responseText);
-					}
-				});
-			});
-		});
-	});
-</script>
+<script src="/js/adminManageUser.js"></script>
 
 </html>

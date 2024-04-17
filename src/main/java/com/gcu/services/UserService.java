@@ -29,7 +29,11 @@ public class UserService {
         this.userTaskRepository = userTaskRepository;
     }
 
-    public UserModel registerNewUser(String username, String password, String firstName, String lastName, String role) {
+    public boolean registerNewUser(String username, String password, String firstName, String lastName, String role) {
+        if (userRepository.existsByUsername(username)) {
+            return false;
+        }
+
         UserModel newUser = new UserModel();
         newUser.setUsername(username);
         newUser.setPassword(passwordEncoder.encode(password)); 
@@ -42,7 +46,7 @@ public class UserService {
 
         addDefaultTasksForUser(savedUser.getId(), new long[]{1, 2, 3});
 
-        return savedUser;
+        return true;
     }
     
     private void addDefaultTasksForUser(Long userId, long[] taskIds) {
